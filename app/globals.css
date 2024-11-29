@@ -5,6 +5,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  overflow: hidden ;
+  width: 100vw;
+  height: 100svh;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +22,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
+  width: 100vw;
+  height: 100svh;
+  position: relative;
 }
 
 .candle-count-display {
@@ -340,9 +346,13 @@ body {
 }
 
 .happy-birthday div {
-  font-size: 20px;
+  font-size: 16px;
   color: #fff;
   text-shadow: 3px 3px 3px #bf0e87;
+}
+
+.happy-birthday .space {
+  width: 10px;
 }
 
 .balloons.animate {
@@ -422,11 +432,6 @@ body {
 }
 */
 
-h1 {
-  color: white;
-  font-family: "Oswald", sans-serif;
-  padding-right: 1em;
-}
 @keyframes example-1 {
   0% {
     transform: translateY(0);
@@ -436,7 +441,7 @@ h1 {
     opacity: 0.8;
   }
 }
-h1 div:nth-child(1) {
+.happy-birthday div:nth-child(1) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -449,7 +454,7 @@ h1 div:nth-child(1) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(2) {
+.happy-birthday div:nth-child(2) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -462,7 +467,7 @@ h1 div:nth-child(2) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(3) {
+.happy-birthday div:nth-child(3) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -475,7 +480,7 @@ h1 div:nth-child(3) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(4) {
+.happy-birthday div:nth-child(4) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -488,7 +493,7 @@ h1 div:nth-child(4) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(5) {
+.happy-birthday div:nth-child(5) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -501,7 +506,7 @@ h1 div:nth-child(5) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(6) {
+.happy-birthday div:nth-child(6) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -514,7 +519,7 @@ h1 div:nth-child(6) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(7) {
+.happy-birthday div:nth-child(7) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -527,7 +532,7 @@ h1 div:nth-child(7) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(8) {
+.happy-birthday div:nth-child(8) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -540,7 +545,7 @@ h1 div:nth-child(8) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(9) {
+.happy-birthday div:nth-child(9) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -553,7 +558,7 @@ h1 div:nth-child(9) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(10) {
+.happy-birthday div:nth-child(10) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -566,7 +571,7 @@ h1 div:nth-child(10) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(11) {
+.happy-birthday div:nth-child(11) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -579,7 +584,7 @@ h1 div:nth-child(11) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(12) {
+.happy-birthday div:nth-child(12) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -592,7 +597,7 @@ h1 div:nth-child(12) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(13) {
+.happy-birthday div:nth-child(13) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -605,7 +610,7 @@ h1 div:nth-child(13) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(14) {
+.happy-birthday div:nth-child(14) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;
@@ -618,7 +623,7 @@ h1 div:nth-child(14) {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
-h1 div:nth-child(15) {
+.happy-birthday div:nth-child(15) {
   display: inline-block;
   -webkit-animation-name: example-1;
           animation-name: example-1;

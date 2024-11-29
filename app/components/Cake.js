@@ -173,6 +173,9 @@ export default function Cake() {
     happyBirthday.current.innerHTML = text
       .split("")
       .map(letter => {
+        if (letter === " ") {
+          return `<div class="space"></div>`;
+        }
         return `<div>` + letter + `</div>`;
       })
       .join("");
