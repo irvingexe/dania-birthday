@@ -432,6 +432,27 @@ body {
 }
 */
 
+.birthday-text, .birthday-subtext {
+  line-height: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1s cubic-bezier(0.455, 0.030, 0.050, 1.040);
+}
+
+.birthday-text {
+  font-family: var(--corinthia);
+  font-size: 60px;
+}
+
+.birthday-subtext {
+  font-family: var(--crimson);
+  font-size: 22px;
+}
+
+/*//////////////////////////*/
+
 @keyframes example-1 {
   0% {
     transform: translateY(0);

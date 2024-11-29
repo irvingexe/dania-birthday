@@ -150,7 +150,12 @@ export default function Cake() {
 
   useEffect(() => {
     if (!candleCount) {
-      cake.current.click();
+      var audio = new Audio("./pop.mp3");
+      audio.play();
+
+      setTimeout(() => {
+        cake.current.click();
+      }, 500);
       setTimeout(() => {
         setPreAnim(true);
       }, 1500);
@@ -229,6 +234,11 @@ export default function Cake() {
         <div className="drip drip2"></div>
         <div className="drip drip3"></div>
       </div>
+      <div className={`birthday-text absolute left-1/2 top-[15%] -translate-x-1/2 ${!candleCount ? 'opacity-0' : ''}`}>
+        <h1>Es tu cumpleaños</h1>
+        <h1>Dania!</h1>
+      </div>
+      <p className={`birthday-subtext absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${!candleCount ? 'opacity-0' : ''}`}>{'Sopla las velas :)'}</p>
     </div>
   );
 }

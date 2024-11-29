@@ -16,6 +16,16 @@ const titanOne = localFont({
   variable: "--titan-one",
   weight: "100 900",
 });
+const corinthia = localFont({
+  src: "./fonts/Corinthia-Regular.ttf",
+  variable: "--corinthia",
+  weight: "100 900",
+});
+const crimson = localFont({
+  src: "./fonts/CrimsonText-Regular.ttf",
+  variable: "--crimson",
+  weight: "100 900",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -26,7 +36,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${titanOne.variable} antialiased`}
+        className={`${geistSans.variable} ${crimson.variable} ${geistMono.variable} ${titanOne.variable} ${corinthia.variable} antialiased`}
       >
         {children}
       </body>
