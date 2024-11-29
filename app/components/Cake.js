@@ -159,6 +159,9 @@ export default function Cake() {
       }, 4000);
       setTimeout(() => {
         setOutAnimation(true);
+
+        var audio = new Audio("./cepillin.mp3");
+        audio.play();
       }, 3700);
     };
   }, [candleCount])
@@ -170,18 +173,16 @@ export default function Cake() {
     happyBirthday.current.innerHTML = text
       .split("")
       .map(letter => {
-        console.log(letter);
-        return `<span>` + letter + `</span>`;
+        return `<div>` + letter + `</div>`;
       })
       .join("");
 
-    Array.from(happyBirthday.current.children).forEach((span, index) => {
+    Array.from(happyBirthday.current.children).forEach((div, index) => {
       setTimeout(() => {
-        span.classList.add("wavy");
+        div.classList.add("wavy");
       }, index * 60 + delay);
     });
   }, [])
-
 
   return (
     <div className="w-full h-full overflow-hidden">
@@ -194,6 +195,10 @@ export default function Cake() {
       </div>
       <div className={`surprise  ${preAnim ? "move" : ""} ${!candleCount ? "rotate" : ""}`}>
         <div className="relative h-full">
+          <div >
+            <Image src={mazapan} alt="mazapan" className={`mazapan-mini1 ${outAnimation ? "animate" : ""}`} />
+            <Image src={mazapan} alt="mazapan" className={`mazapan-mini2 ${outAnimation ? "animate" : ""}`} />
+          </div>
           <div className={`dania ${outAnimation ? "animate" : ""}`} >
             <div className="relative h-full">
               <div className={`balloons absolute ${outAnimation ? "animate" : ""}`} >
@@ -208,10 +213,6 @@ export default function Cake() {
               <Image src={mazapan1} alt="mazapan" className={`mazapan1 ${mazapanOpen ? "open" : ""}`} />
               <Image src={mazapan2} alt="mazapan" className={`mazapan2 ${mazapanOpen ? "open" : ""}`} />
             </div>
-          </div>
-          <div >
-            <Image src={mazapan} alt="mazapan" className={`mazapan-mini1 ${outAnimation ? "animate" : ""}`} />
-            <Image src={mazapan} alt="mazapan" className={`mazapan-mini2 ${outAnimation ? "animate" : ""}`} />
           </div>
         </div>
       </div>
