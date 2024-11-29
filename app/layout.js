@@ -12,7 +12,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 const titanOne = localFont({
-  src: "./fonts/titanOne-Regular.ttf",
+  src: "./fonts/TitanOne-Regular.ttf",
   variable: "--titan-one",
   weight: "100 900",
 });
