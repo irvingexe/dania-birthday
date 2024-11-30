@@ -188,8 +188,8 @@ export default function Cake() {
       <div className={`surprise  ${preAnim ? "move" : ""}`}>
         <div className="relative h-full">
           <div >
-            <Image src={mazapan} alt="mazapan" className={`mazapan-mini1 ${outAnimation ? "animate" : ""}`} />
-            <Image src={mazapan} alt="mazapan" className={`mazapan-mini2 ${outAnimation ? "animate" : ""}`} />
+            <Image src={mazapan} alt="mazapan1" className={`mazapan-mini1 ${outAnimation ? "animate" : ""}`} />
+            <Image src={mazapan} alt="mazapan2" className={`mazapan-mini2 ${outAnimation ? "animate" : ""}`} />
           </div>
         </div>
       </div>
