@@ -163,7 +163,7 @@ export default function Cake() {
     setTimeout(() => {
 
       document.querySelector('.surprise').classList.add('rotate');
-    }, 500);
+    }, 1000);
 
     setTimeout(() => {
       cake.current.click();
