@@ -62,7 +62,7 @@ body {
 
 .surprise.visible {
   animation: show-surprise 0s forwards;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 @keyframes show-surprise {
