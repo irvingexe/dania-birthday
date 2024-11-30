@@ -274,7 +274,7 @@ export default function Cake() {
       </div>
       <div className={`birthday-text absolute left-1/2 top-[15%] -translate-x-1/2 ${!candleCount.current ? 'opacity-0' : ''}`}>
       </div>
-      <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${start ? 'visible' : ''} ${!candleCount.current ? 'opacity-0' : ''}`} ref={blowText}>{'Sopla las velas :)'}</p>
+      <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 opacity-0 ${start ? 'visible opacity-100' : ''} ${!candleCount.current ? '!opacity-0' : ''}`} ref={blowText}>{'Sopla las velas :)'}</p>
       <div className={`hello ${start ? 'hidden' : ''}`}>
         <span>
           Para comenzar, asegurate de subir el volumen y aceptar el uso del microfono
