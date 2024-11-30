@@ -3,18 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #0a0a0a;
+    --foreground: #ededed;
   overflow: hidden ;
   width: 100vw;
   height: 100svh;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -262,7 +255,7 @@ body {
 }
 
 .hello button {
-  border: solid 1px #fff;
+  border: solid 1px var(--foreground);
   padding: .3em 2em;
 }
 
