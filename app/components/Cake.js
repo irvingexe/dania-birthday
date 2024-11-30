@@ -277,7 +277,7 @@ export default function Cake() {
       <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${start ? 'visible' : ''} ${!candleCount.current ? 'opacity-0' : ''}`} ref={blowText}>{'Sopla las velas :)'}</p>
       <div className={`hello ${start ? 'hidden' : ''}`}>
         <span>
-          Para comenzar, asegurate de subir el volumen y aceptar usar el microfono
+          Para comenzar, asegurate de subir el volumen y aceptar el uso del microfono
         </span>
         <button onClick={() => { enableMic() }}>
           Continuar
