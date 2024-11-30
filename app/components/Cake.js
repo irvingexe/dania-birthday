@@ -10,6 +10,7 @@ import mazapan2 from "@/assets/mazapan2.png";
 import dania from "@/assets/dania.png";
 import bg from "@/assets/bg.jpg";
 import balloons from "@/assets/balloons2.webp"
+import Vara from "vara";
 
 export default function Cake() {
   const [outAnimation, setOutAnimation] = useState(false);
@@ -28,6 +29,11 @@ export default function Cake() {
     const activeCandles = candles.filter(
       (candle) => !candle.classList.contains("out")
     ).length;
+
+    if (!activeCandles) {
+      const audio = new Audio("./pop.mp3");
+      audio.play();
+    }
     setCandleCount(activeCandles);
   }
 
@@ -150,8 +156,10 @@ export default function Cake() {
 
   useEffect(() => {
     if (!candleCount) {
+      /*
       var audio = new Audio("./pop.mp3");
       audio.play();
+      */
 
       setTimeout(() => {
         cake.current.click();
@@ -192,8 +200,21 @@ export default function Cake() {
     });
   }, [])
 
+  useEffect(() => {
+    new Vara(".birthday-text", "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json", [{
+      text: "Es tu cumple Dania!",
+      duration: 2500
+    }], {
+      fontSize: 62,
+      strokeWidth: 2,
+      color: "#fff",
+      textAlign: "center"
+    });
+  }, [])
+
   return (
     <div className="w-full h-full overflow-hidden">
+      <div className="lights-container" />
       <div id="fireworks" ref={fireworks} />
       {/*<div className="candle-count-display">
         Candles on the Cake: <span id="candleCount">{candleCount}</span>
@@ -235,8 +256,6 @@ export default function Cake() {
         <div className="drip drip3"></div>
       </div>
       <div className={`birthday-text absolute left-1/2 top-[15%] -translate-x-1/2 ${!candleCount ? 'opacity-0' : ''}`}>
-        <h1>Es tu cumpleaños</h1>
-        <h1>Dania!</h1>
       </div>
       <p className={`birthday-subtext absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${!candleCount ? 'opacity-0' : ''}`}>{'Sopla las velas :)'}</p>
     </div>

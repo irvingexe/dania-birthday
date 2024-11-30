@@ -657,3 +657,38 @@ body {
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
 }
+
+/*///////////////////////////*/
+
+.lights-container::after,
+.lights-container::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background: hsl(199, 56%, 18%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(70px);
+  mix-blend-mode: lighten;
+}
+
+.lights-container::before {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+.lights-container::after {
+  top: 50%;
+  left: 0px;
+  transform: translateX(-50%);
+}
+/*With gradient background*/
+.lights-container {
+  background: radial-gradient(
+      circle closest-corner at center 125px,
+      hsl(199, 56%, 18%),
+      #191b1f 70%
+    )
+    no-repeat;
+}
