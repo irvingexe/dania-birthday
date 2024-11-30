@@ -420,8 +420,8 @@ body {
 .mazapan-mini3 {
   transform: scale(0);
   position: absolute;
-  left: -100%;
-  top: -70%;
+  left: -90%;
+  top: -130%;
   transition: all 2s ease-in-out;
 }
 
