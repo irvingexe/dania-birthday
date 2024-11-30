@@ -239,7 +239,7 @@ export default function Cake() {
       <div className="w-full h-full">
         <Image src={bg} alt="bg" className={`bg opacity-0 ${outAnimation ? "opacity-100" : ""}`} />
       </div>
-      <div className={`surprise  ${preAnim ? "move" : ""}`}>
+      <div className={`surprise ${start ? 'visible' : ''} ${preAnim ? "move" : ""}`}>
         <div className="relative h-full">
           <div >
             <Image src={mazapan} alt="mazapan" className={`mazapan-mini2 ${outAnimation ? "animate" : ""}`} />
