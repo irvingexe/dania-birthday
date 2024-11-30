@@ -21,7 +21,9 @@ export default function Cake() {
   const blowText = useRef(null);
   const cake = useRef(null);
   const fireworks = useRef(null);
-  const [candleCount, setCandleCount] = useState(9);
+  const candleCount = useRef(9);
+  const pop = useRef(new Audio("./pop.mp3"));
+  const cepillin = useRef(new Audio("./cepillin.mp3"));
   let candles = useMemo(() => [], []);
   let audioContext;
   let analyser;
@@ -31,7 +33,8 @@ export default function Cake() {
     const activeCandles = candles.filter(
       (candle) => !candle.classList.contains("out")
     ).length;
-    setCandleCount(activeCandles);
+    candleCount.current = activeCandles;
+    if (!activeCandles) playPop();
   }
 
   const addCandle = useCallback((left, top) => {
@@ -89,7 +92,7 @@ export default function Cake() {
           microphone = audioContext.createMediaStreamSource(stream);
           microphone.connect(analyser);
           analyser.fftSize = 256;
-          setTimeout(() => { setInterval(blowOutCandles, 500) }, 3000);
+          setTimeout(() => { setInterval(blowOutCandles, 300) }, 3000);
           setStart(true);
         })
         .catch(function (err) {
@@ -154,28 +157,26 @@ export default function Cake() {
     }
   }, [mazapanOpen])
 
-  useEffect(() => {
-    if (!candleCount) {
-      var audio = new Audio("./pop.mp3");
-      audio.play();
+  const playPop = () => {
+    pop.current.play();
 
-      setTimeout(() => {
-        cake.current.click();
-      }, 500);
-      setTimeout(() => {
-        setPreAnim(true);
-      }, 1500);
-      setTimeout(() => {
-        setMazapanOpen(true);
-      }, 4000);
-      setTimeout(() => {
-        setOutAnimation(true);
+    document.querySelector('.surprise').classList.add('rotate');
 
-        var audio = new Audio("./cepillin.mp3");
-        audio.play();
-      }, 3700);
-    };
-  }, [candleCount])
+    setTimeout(() => {
+      cake.current.click();
+    }, 500);
+    setTimeout(() => {
+      setPreAnim(true);
+    }, 1500);
+    setTimeout(() => {
+      setMazapanOpen(true);
+    }, 4000);
+    setTimeout(() => {
+      setOutAnimation(true);
+
+      cepillin.current.play();
+    }, 3700);
+  };
 
   useEffect(() => {
     const text = "HAPPY BIRTHDAY!";
@@ -238,7 +239,7 @@ export default function Cake() {
       <div className="w-full h-full">
         <Image src={bg} alt="bg" className={`bg opacity-0 ${outAnimation ? "opacity-100" : ""}`} />
       </div>
-      <div className={`surprise  ${preAnim ? "move" : ""} ${!candleCount ? "rotate" : ""}`}>
+      <div className={`surprise  ${preAnim ? "move" : ""}`}>
         <div className="relative h-full">
           <div >
             <Image src={mazapan} alt="mazapan" className={`mazapan-mini1 ${outAnimation ? "animate" : ""}`} />
@@ -271,12 +272,12 @@ export default function Cake() {
         <div className="drip drip2"></div>
         <div className="drip drip3"></div>
       </div>
-      <div className={`birthday-text absolute left-1/2 top-[15%] -translate-x-1/2 ${!candleCount ? 'opacity-0' : ''}`}>
+      <div className={`birthday-text absolute left-1/2 top-[15%] -translate-x-1/2 ${!candleCount.current ? 'opacity-0' : ''}`}>
       </div>
-      <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${start ? 'visible' : ''} ${!candleCount ? 'opacity-0' : ''}`} ref={blowText}>{'Sopla las velas :)'}</p>
+      <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${start ? 'visible' : ''} ${!candleCount.current ? 'opacity-0' : ''}`} ref={blowText}>{'Sopla las velas :)'}</p>
       <div className={`hello ${start ? 'hidden' : ''}`}>
         <span>
-          Para comenzar, sube el volumen y acepta usar el microfono
+          Para comenzar, asegurate de subir el volumen y aceptar usar el microfono
         </span>
         <button onClick={() => { enableMic() }}>
           Continuar

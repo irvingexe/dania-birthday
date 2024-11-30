@@ -417,9 +417,14 @@ body {
   transition: all 2s ease-in-out;
 }
 
-.mazapan-mini1.animate, .mazapan-mini2.animate {
+.mazapan-mini1.animate {
   transform: scale(.5);
-  animation: mazapan-mini-animation 0.8s cubic-bezier(0.455, 0.030, 0.050, 1.040) infinite alternate;
+  animation: mazapan-mini1-animation 0.8s cubic-bezier(0.455, 0.030, 0.050, 1.040) infinite alternate;
+}
+
+.mazapan-mini2.animate {
+  transform: scale(.5);
+  animation: mazapan-mini2-animation 0.8s cubic-bezier(0.455, 0.030, 0.050, 1.040) infinite alternate;
 }
 
 .mazapan-mini1.animate {
@@ -430,7 +435,16 @@ body {
   animation-delay: 2s;
 }
 
-@keyframes mazapan-mini-animation {
+@keyframes mazapan-mini1-animation {
+  0% {
+    transform: scale(.5);
+  }
+  100% {
+    transform: scale(.6);
+  }
+}
+
+@keyframes mazapan-mini2-animation {
   0% {
     transform: scale(.5);
   }
