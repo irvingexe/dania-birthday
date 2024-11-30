@@ -401,28 +401,10 @@ body {
   }
 }
 
-@keyframes mazapan-mini1-animation {
-  0% {
-    transform: scale(.5);
-  }
-  100% {
-    transform: scale(.6);
-  }
-}
-
-@keyframes mazapan-mini2-animation {
-  0% {
-    transform: scale(.5);
-  }
-  100% {
-    transform: scale(.6);
-  }
-}
-
 .mazapan-mini1 {
   transform: scale(0);
   position: absolute;
-  left: -90%;
+  left: 90%;
   top: -130%;
   transition: all 3s cubic-bezier(0.455, 0.030, 0.050, 1.040);
 }
@@ -451,6 +433,24 @@ body {
 
 .mazapan-mini2.animate {
   animation-delay: 2s;
+}
+
+@keyframes mazapan-mini1-animation {
+  0% {
+    transform: scale(.5);
+  }
+  100% {
+    transform: scale(.6);
+  }
+}
+
+@keyframes mazapan-mini2-animation {
+  0% {
+    transform: scale(.5);
+  }
+  100% {
+    transform: scale(.6);
+  }
 }
 
 /*
