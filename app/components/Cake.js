@@ -178,87 +178,18 @@ export default function Cake() {
     }, 3700);
   };
 
-  useEffect(() => {
-    const text = "HAPPY BIRTHDAY!";
-
-    happyBirthday.current.innerHTML = text
-      .split("")
-      .map(letter => {
-        if (letter === " ") {
-          return `<div class="space"></div>`;
-        }
-        return `<div>` + letter + `</div>`;
-      })
-      .join("");
-
-    Array.from(happyBirthday.current.children).forEach((div) => {
-      div.classList.add("wavy");
-    });
-  }, [])
-
-  useEffect(() => {
-    const text = "Sopla las velas :)";
-
-    blowText.current.innerHTML = text
-      .split("")
-      .map(letter => {
-        if (letter === " ") {
-          return `<div class="space"></div>`;
-        }
-        return `<div>` + letter + `</div>`;
-      })
-      .join("");
-
-    Array.from(blowText.current.children).forEach((div) => {
-      div.classList.add("wavy");
-    });
-  }, [])
-
-  useEffect(() => {
-    if (start) {
-      new Vara(".birthday-text", "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json", [{
-        text: "Feliz dia Dania!",
-        duration: 1500,
-        y: 3,
-      }], {
-        fontSize: 62,
-        strokeWidth: 2,
-        color: "#fff",
-        textAlign: "center"
-      });
-    }
-  }, [start])
 
   return (
     <div className="w-full h-full overflow-hidden">
-      <div className="lights-container" />
       <div id="fireworks" ref={fireworks} />
       {/*<div className="candle-count-display">
         Candles on the Cake: <span id="candleCount">{candleCount}</span>
       </div>*/}
-      <div className="w-full h-full">
-        <Image src={bg} alt="bg" className={`bg opacity-0 ${outAnimation ? "opacity-100" : ""}`} />
-      </div>
       <div className={`surprise  ${preAnim ? "move" : ""}`}>
         <div className="relative h-full">
           <div >
             <Image src={mazapan} alt="mazapan" className={`mazapan-mini1 ${outAnimation ? "animate" : ""}`} />
             <Image src={mazapan} alt="mazapan" className={`mazapan-mini2 ${outAnimation ? "animate" : ""}`} />
-          </div>
-          <div className={`dania ${outAnimation ? "animate" : ""}`} >
-            <div className="relative h-full">
-              <div className={`balloons absolute ${outAnimation ? "animate" : ""}`} >
-                <Image src={balloons} alt="balloons" />
-                <h1 className="absolute happy-birthday flex justify-center" ref={happyBirthday} />
-              </div>
-              <Image src={dania} alt="Dania" className="absolute" />
-            </div>
-          </div>
-          <div className={`mazapan`} >
-            <div className="relative h-full">
-              <Image src={mazapan1} alt="mazapan" className={`mazapan1 ${mazapanOpen ? "open" : ""}`} />
-              <Image src={mazapan2} alt="mazapan" className={`mazapan2 ${mazapanOpen ? "open" : ""}`} />
-            </div>
           </div>
         </div>
       </div>
@@ -272,9 +203,6 @@ export default function Cake() {
         <div className="drip drip2"></div>
         <div className="drip drip3"></div>
       </div>
-      <div className={`birthday-text absolute left-1/2 top-[15%] -translate-x-1/2 ${!candleCount.current ? 'opacity-0' : ''}`}>
-      </div>
-      <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${start ? 'visible' : ''} ${!candleCount.current ? 'opacity-0' : ''}`} ref={blowText}>{'Sopla las velas :)'}</p>
       <div className={`hello ${start ? 'hidden' : ''}`}>
         <span>
           Para comenzar, asegurate de subir el volumen y aceptar usar el microfono
