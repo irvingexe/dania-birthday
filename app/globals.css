@@ -54,10 +54,11 @@ body {
 }
 
 .surprise {
+  opacity: 1;
   margin-top: 35px;
   margin-left: 0;
   transform-origin: 0% 0%;
-  transform: rotate(0deg);
+  transform: rotate(0deg) scale(0.8) translate(-50%, -50%);
 }
 
 .dania, .mazapan {
@@ -284,16 +285,15 @@ body {
 }
 
 .surprise.rotate {
-  opacity: 1;
   animation: surprise-rotation 1s forwards;
 }
 
 @keyframes surprise-rotation {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(0.8) translate(-50%, -50%);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(1) translate(-50%, -50%);
   }
 }
 
