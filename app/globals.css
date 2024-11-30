@@ -43,6 +43,7 @@ body {
 }
 
 .cake, .surprise {
+  opacity: 0;
   position: absolute;
   width: min(200px, 70vw);
   height: min(200px, 70vw);
@@ -283,6 +284,7 @@ body {
 }
 
 .surprise.rotate {
+  opacity: 1;
   animation: surprise-rotation 1s forwards;
 }
 
