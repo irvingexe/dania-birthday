@@ -15,8 +15,10 @@ import Vara from "vara";
 export default function Cake() {
   const [outAnimation, setOutAnimation] = useState(false);
   const [mazapanOpen, setMazapanOpen] = useState(false);
+  const [start, setStart] = useState(false);
   const [preAnim, setPreAnim] = useState(false);
   const happyBirthday = useRef(null);
+  const blowText = useRef(null);
   const cake = useRef(null);
   const fireworks = useRef(null);
   const [candleCount, setCandleCount] = useState(9);
@@ -29,11 +31,6 @@ export default function Cake() {
     const activeCandles = candles.filter(
       (candle) => !candle.classList.contains("out")
     ).length;
-
-    if (!activeCandles) {
-      const audio = new Audio("./pop.mp3");
-      audio.play();
-    }
     setCandleCount(activeCandles);
   }
 
@@ -82,22 +79,25 @@ export default function Cake() {
     }
   }
 
-  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices
-      .getUserMedia({ audio: true })
-      .then(function (stream) {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        analyser = audioContext.createAnalyser();
-        microphone = audioContext.createMediaStreamSource(stream);
-        microphone.connect(analyser);
-        analyser.fftSize = 256;
-        setInterval(blowOutCandles, 200);
-      })
-      .catch(function (err) {
-        console.log("Unable to access microphone: " + err);
-      });
-  } else {
-    console.log("getUserMedia not supported on your browser!");
+  const enableMic = () => {
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then(function (stream) {
+          audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          analyser = audioContext.createAnalyser();
+          microphone = audioContext.createMediaStreamSource(stream);
+          microphone.connect(analyser);
+          analyser.fftSize = 256;
+          setTimeout(() => { setInterval(blowOutCandles, 500) }, 3000);
+          setStart(true);
+        })
+        .catch(function (err) {
+          console.log("Unable to access microphone: " + err);
+        });
+    } else {
+      console.log("getUserMedia not supported on your browser!");
+    }
   }
 
   /*
@@ -156,10 +156,8 @@ export default function Cake() {
 
   useEffect(() => {
     if (!candleCount) {
-      /*
       var audio = new Audio("./pop.mp3");
       audio.play();
-      */
 
       setTimeout(() => {
         cake.current.click();
@@ -181,7 +179,6 @@ export default function Cake() {
 
   useEffect(() => {
     const text = "HAPPY BIRTHDAY!";
-    let delay = 200;
 
     happyBirthday.current.innerHTML = text
       .split("")
@@ -193,24 +190,43 @@ export default function Cake() {
       })
       .join("");
 
-    Array.from(happyBirthday.current.children).forEach((div, index) => {
-      setTimeout(() => {
-        div.classList.add("wavy");
-      }, index * 60 + delay);
+    Array.from(happyBirthday.current.children).forEach((div) => {
+      div.classList.add("wavy");
     });
   }, [])
 
   useEffect(() => {
-    new Vara(".birthday-text", "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json", [{
-      text: "Es tu cumple Dania!",
-      duration: 2500
-    }], {
-      fontSize: 62,
-      strokeWidth: 2,
-      color: "#fff",
-      textAlign: "center"
+    const text = "Sopla las velas :)";
+
+    blowText.current.innerHTML = text
+      .split("")
+      .map(letter => {
+        if (letter === " ") {
+          return `<div class="space"></div>`;
+        }
+        return `<div>` + letter + `</div>`;
+      })
+      .join("");
+
+    Array.from(blowText.current.children).forEach((div) => {
+      div.classList.add("wavy");
     });
   }, [])
+
+  useEffect(() => {
+    if (start) {
+      new Vara(".birthday-text", "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json", [{
+        text: "Feliz dia Dania!",
+        duration: 1500,
+        y: 3,
+      }], {
+        fontSize: 62,
+        strokeWidth: 2,
+        color: "#fff",
+        textAlign: "center"
+      });
+    }
+  }, [start])
 
   return (
     <div className="w-full h-full overflow-hidden">
@@ -245,7 +261,7 @@ export default function Cake() {
           </div>
         </div>
       </div>
-      <div id="cake" className="cake" ref={cake}>
+      <div id="cake" className={`cake ${start ? 'visible' : ''}`} ref={cake}>
         <div className="plate"></div>
         <div className="layer layer-bottom"></div>
         <div className="layer layer-middle"></div>
@@ -257,7 +273,15 @@ export default function Cake() {
       </div>
       <div className={`birthday-text absolute left-1/2 top-[15%] -translate-x-1/2 ${!candleCount ? 'opacity-0' : ''}`}>
       </div>
-      <p className={`birthday-subtext absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${!candleCount ? 'opacity-0' : ''}`}>{'Sopla las velas :)'}</p>
+      <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 ${start ? 'visible' : ''} ${!candleCount ? 'opacity-0' : ''}`} ref={blowText}>{'Sopla las velas :)'}</p>
+      <div className={`hello ${start ? 'hidden' : ''}`}>
+        <span>
+          Para comenzar, sube el volumen y acepta usar el microfono
+        </span>
+        <button onClick={() => { enableMic() }}>
+          Continuar
+        </button>
+      </div>
     </div>
   );
 }

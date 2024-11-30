@@ -50,6 +50,7 @@ body {
 }
 
 .cake, .surprise {
+  opacity: 0;
   position: absolute;
   width: min(200px, 70vw);
   height: min(200px, 70vw);
@@ -62,7 +63,6 @@ body {
 .surprise {
   margin-top: 35px;
   margin-left: 0;
-  opacity: 0.7;
   transform-origin: 0% 0%;
   transform: rotate(0deg) scale(0.8) translate(-50%, -50%);
 }
@@ -248,8 +248,46 @@ body {
 
 /*/////////////*/
 
+.hello {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: min(400px, 70vw);
+  transition: opacity .5s cubic-bezier(0.455, 0.030, 0.050, 1.040);
+}
+
+.hello button {
+  border: solid 1px #fff;
+  padding: .3em 2em;
+}
+
+.hello.hidden {
+  opacity: 0;
+}
+
 .cake {
   pointer-events: none;
+}
+
+.cake.visible {
+  animation: show-cake 1s cubic-bezier(0.455, 0.030, 0.050, 1.040) forwards;
+  animation-delay: 1s;
+}
+
+@keyframes show-cake {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .surprise.rotate {
@@ -432,7 +470,7 @@ body {
 }
 */
 
-.birthday-text, .birthday-subtext {
+.birthday-text, .blow-text {
   line-height: 1;
   width: 100%;
   display: flex;
@@ -446,9 +484,131 @@ body {
   font-size: 60px;
 }
 
-.birthday-subtext {
+.blow-text {
   font-family: var(--crimson);
   font-size: 22px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.blow-text .space {
+  width: 8px;
+}
+
+.blow-text div {
+  transform: translateY(9px);
+  opacity: 0;
+  color: #cbbda5;
+}
+
+@keyframes blow-show {
+  0% {
+    transform: translateY(9px);
+    opacity: 0;
+  }
+  33% {
+    transform: translateY(7px);
+    opacity: 0.2;
+  }
+  66% {
+    transform: translateY(2px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.blow-text.visible div:nth-child(1) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2s;
+}
+.blow-text.visible div:nth-child(2) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.02s;
+}
+.blow-text.visible div:nth-child(3) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.04s;
+}
+.blow-text.visible div:nth-child(4) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.08s;
+}
+.blow-text.visible div:nth-child(5) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.1s;
+}
+.blow-text.visible div:nth-child(6) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.12s;
+}
+.blow-text.visible div:nth-child(7) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.14s;
+}
+.blow-text.visible div:nth-child(8) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.16s;
+}
+.blow-text.visible div:nth-child(9) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.18s;
+}
+.blow-text.visible div:nth-child(10) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.2s;
+}
+.blow-text.visible div:nth-child(11) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.22s;
+}
+.blow-text.visible div:nth-child(12) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.24s;
+}
+.blow-text.visible div:nth-child(13) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.26s;
+}
+.blow-text.visible div:nth-child(14) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.28s;
+}
+.blow-text.visible div:nth-child(15) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.3s;
+}
+.blow-text.visible div:nth-child(16) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.32s;
+}
+.blow-text.visible div:nth-child(17) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.34s;
+}
+.blow-text.visible div:nth-child(18) {
+  opacity: 0;
+  display: inline-block;
+  animation: blow-show .2s ease-in-out forwards 2.36s;
 }
 
 /*//////////////////////////*/
