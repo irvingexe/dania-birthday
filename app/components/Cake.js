@@ -160,10 +160,7 @@ export default function Cake() {
   const playPop = () => {
     pop.current.play();
 
-    setTimeout(() => {
-
-      document.querySelector('.surprise').classList.add('rotate');
-    }, 1000);
+    document.querySelector('.surprise').classList.add('rotate');
 
     setTimeout(() => {
       cake.current.click();
