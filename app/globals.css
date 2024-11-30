@@ -401,6 +401,24 @@ body {
   }
 }
 
+@keyframes mazapan-mini1-animation {
+  0% {
+    transform: scale(.5);
+  }
+  100% {
+    transform: scale(.6);
+  }
+}
+
+@keyframes mazapan-mini2-animation {
+  0% {
+    transform: scale(.5);
+  }
+  100% {
+    transform: scale(.6);
+  }
+}
+
 .mazapan-mini1 {
   transform: scale(0);
   position: absolute;
@@ -433,24 +451,6 @@ body {
 
 .mazapan-mini2.animate {
   animation-delay: 2s;
-}
-
-@keyframes mazapan-mini1-animation {
-  0% {
-    transform: scale(.5);
-  }
-  100% {
-    transform: scale(.6);
-  }
-}
-
-@keyframes mazapan-mini2-animation {
-  0% {
-    transform: scale(.5);
-  }
-  100% {
-    transform: scale(.6);
-  }
 }
 
 /*
