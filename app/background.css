@@ -7,8 +7,8 @@
 }
 
 .background.light {
-  background: #ffd8d8;
-  filter: brightness(2);
+  background: #ff7474;
+  filter: brightness(1.5);
   opacity: 1;
 }
 

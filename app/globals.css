@@ -621,7 +621,6 @@ body {
   }
   50% {
     transform: translateY(9px);
-    opacity: 0.8;
   }
 }
 .happy-birthday div:nth-child(1) {
