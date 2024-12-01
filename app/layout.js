@@ -27,9 +27,34 @@ const crimson = localFont({
   weight: "100 900",
 });
 
+const title = "Dania cumpleaños 32 🎉";
+const description = "🎂";
+const url = "https://www.dania-birthday.site";
+
 export const metadata = {
-  title: "Dania cumpleaños 32 🎉",
-  description: "🎂",
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    url: url,
+    siteName: title,
+    images: [
+      {
+        url: '/thumbnail.jpg',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    url: url,
+    title: title,
+    description: description,
+    image: '/thumbnail.jpg',
+  },
+  metadataBase: url,
 };
 
 export default function RootLayout({ children }) {
