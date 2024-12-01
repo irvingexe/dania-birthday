@@ -4,14 +4,15 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Confetti } from "../utils/confetti.min.js";
 import { ConfettiRandom } from "../utils/ConfettiRandom.min.js";
 import Image from "next/image.js";
-import mazapan from "@/assets/mazapan.webp";
+import mazapan from "@/assets/turin.webp";
 import mazapan1 from "@/assets/mazapan1.webp";
 import mazapan2 from "@/assets/mazapan2.webp";
-import dania from "@/assets/dania.webp";
+import dania from "@/assets/capybara.webp";
 import bg from "@/assets/bg.webp";
-import balloons from "@/assets/balloons2.webp"
+import balloons from "@/assets/morebaloons.webp";
 import Vara from "vara";
 import Background from "./Background.js";
+import sushi from "@/assets/sushi.webp";
 
 export default function Cake() {
   const [outAnimation, setOutAnimation] = useState(false);
@@ -241,7 +242,7 @@ export default function Cake() {
         <div className="relative h-full">
           <div >
             <Image src={mazapan} alt="mazapan" className={`mazapan-mini2 ${outAnimation ? "animate" : ""}`} />
-            <Image src={mazapan} alt="mazapan" className={`mazapan-mini3 ${outAnimation ? "animate" : ""}`} />
+            <Image src={sushi} alt="mazapan" className={`mazapan-mini3 ${outAnimation ? "animate" : ""}`} />
           </div>
           <div className={`dania ${outAnimation ? "animate" : ""}`} >
             <div className="relative h-full">
