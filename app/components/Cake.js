@@ -174,7 +174,7 @@ export default function Cake() {
     setTimeout(() => {
       setOutAnimation(true);
 
-      pop.current.play();
+      cepillin.current.play();
     }, 3700);
   };
 
@@ -279,7 +279,7 @@ export default function Cake() {
         <span>
           Para comenzar, asegurate de subir el volumen y aceptar el uso del microfono
         </span>
-        <button onClick={() => { pop.current.play(); enableMic() }}>
+        <button onClick={() => { cepillin.current.play(); enableMic() }}>
           Continuar
         </button>
       </div>
