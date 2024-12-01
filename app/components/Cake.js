@@ -174,7 +174,7 @@ export default function Cake() {
     setTimeout(() => {
       setOutAnimation(true);
 
-      cepillin.current.play();
+      pop.current.play();
     }, 3700);
   };
 
