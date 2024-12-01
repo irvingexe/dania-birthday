@@ -158,9 +158,6 @@ export default function Cake() {
   }, [mazapanOpen])
 
   const playPop = () => {
-    pop.current.pause();
-    pop.current.currentTime = 0;
-    pop.current.volume = 1;
     pop.current.play();
 
     document.querySelector('.surprise').classList.add('rotate');
@@ -177,9 +174,6 @@ export default function Cake() {
     setTimeout(() => {
       setOutAnimation(true);
 
-      cepillin.current.pause();
-      cepillin.current.currentTime = 0;
-      cepillin.current.volume = 1;
       cepillin.current.play();
     }, 3700);
   };
@@ -286,10 +280,16 @@ export default function Cake() {
           Para comenzar, asegurate de subir el volumen y aceptar el uso del microfono
         </span>
         <button onClick={() => {
-          pop.current.volume = 0;
-          cepillin.current.volume = 0;
           pop.current.play();
+          pop.current.volume = 0;
+          pop.current.volume = 1;
+          pop.current.pause();
+          pop.current.currentTime = 0;
           cepillin.current.play();
+          cepillin.current.volume = 0;
+          cepillin.current.volume = 1;
+          cepillin.current.pause();
+          cepillin.current.currentTime = 0;
           enableMic();
         }}>
           Continuar
