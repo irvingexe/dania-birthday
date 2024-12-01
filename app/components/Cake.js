@@ -4,11 +4,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Confetti } from "../utils/confetti.min.js";
 import { ConfettiRandom } from "../utils/ConfettiRandom.min.js";
 import Image from "next/image.js";
-import mazapan from "@/assets/mazapan.png";
-import mazapan1 from "@/assets/mazapan1.png";
-import mazapan2 from "@/assets/mazapan2.png";
-import dania from "@/assets/dania.png";
-import bg from "@/assets/bg.jpg";
+import mazapan from "@/assets/mazapan.webp";
+import mazapan1 from "@/assets/mazapan1.webp";
+import mazapan2 from "@/assets/mazapan2.webp";
+import dania from "@/assets/dania.webp";
+import bg from "@/assets/bg.webp";
 import balloons from "@/assets/balloons2.webp"
 import Vara from "vara";
 import Background from "./Background.js";
