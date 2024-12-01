@@ -279,7 +279,7 @@ export default function Cake() {
         <span>
           Para comenzar, asegurate de subir el volumen y aceptar el uso del microfono
         </span>
-        <button onClick={() => { enableMic() }}>
+        <button onClick={() => { pop.current.play(); enableMic() }}>
           Continuar
         </button>
       </div>
