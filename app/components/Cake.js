@@ -277,7 +277,7 @@ export default function Cake() {
         <span>
           Para comenzar, asegurate de subir el volumen y aceptar el uso del microfono
         </span>
-        <button onClick={() => {
+        <button className={start ? '!pointer-events-none' : ''} onClick={() => {
           pop.current.play();
           pop.current.volume = 0;
           pop.current.volume = 1;
