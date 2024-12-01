@@ -158,8 +158,9 @@ export default function Cake() {
   }, [mazapanOpen])
 
   const playPop = () => {
-    pop.volume = 1;
-    cepillin.volume = 1;
+    pop.current.pause();
+    pop.current.currentTime = 0;
+    pop.current.volume = 1;
     pop.current.play();
 
     document.querySelector('.surprise').classList.add('rotate');
@@ -176,6 +177,9 @@ export default function Cake() {
     setTimeout(() => {
       setOutAnimation(true);
 
+      cepillin.current.pause();
+      cepillin.current.currentTime = 0;
+      cepillin.current.volume = 1;
       cepillin.current.play();
     }, 3700);
   };
