@@ -3,6 +3,13 @@
   height: 100vh;
   background: #100d0c;
   opacity: 0.5;
+  transition: all 3s cubic-bezier(0.455, 0.030, 0.050, 1.040);
+}
+
+.background.light {
+  background: #ffd8d8;
+  filter: brightness(2);
+  opacity: 1;
 }
 
 .background span {

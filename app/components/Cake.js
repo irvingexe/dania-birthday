@@ -232,10 +232,10 @@ export default function Cake() {
 
   return (
     <div className="w-full h-full overflow-hidden">
-      <Background />
+      <Background lightMode={outAnimation} />
       <div id="fireworks" ref={fireworks} />
       <div className="w-full h-full absolute top-0 left-0">
-        <Image src={bg} alt="bg" className={`bg opacity-0 ${outAnimation ? "opacity-100" : ""}`} />
+        <Image src={bg} alt="bg" className={`bg opacity-0 ${outAnimation ? "opacity-30" : ""}`} />
       </div>
       <div className={`surprise ${start ? 'visible' : ''} ${preAnim ? "move" : ""}`}>
         <div className="relative h-full">
