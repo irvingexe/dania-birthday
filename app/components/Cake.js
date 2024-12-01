@@ -11,6 +11,7 @@ import dania from "@/assets/dania.png";
 import bg from "@/assets/bg.jpg";
 import balloons from "@/assets/balloons2.webp"
 import Vara from "vara";
+import Background from "./Background.js";
 
 export default function Cake() {
   const [outAnimation, setOutAnimation] = useState(false);
@@ -231,12 +232,9 @@ export default function Cake() {
 
   return (
     <div className="w-full h-full overflow-hidden">
-      <div className="lights-container" />
+      <Background />
       <div id="fireworks" ref={fireworks} />
-      {/*<div className="candle-count-display">
-        Candles on the Cake: <span id="candleCount">{candleCount}</span>
-      </div>*/}
-      <div className="w-full h-full">
+      <div className="w-full h-full absolute top-0 left-0">
         <Image src={bg} alt="bg" className={`bg opacity-0 ${outAnimation ? "opacity-100" : ""}`} />
       </div>
       <div className={`surprise ${start ? 'visible' : ''} ${preAnim ? "move" : ""}`}>

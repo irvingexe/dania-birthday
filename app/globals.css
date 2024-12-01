@@ -262,13 +262,14 @@ body {
 .hello button {
   border: solid 1px var(--foreground);
   padding: .3em 2em;
+  pointer-events: all;
 }
 
 .hello.hidden {
   opacity: 0;
 }
 
-.cake {
+*:not(button) {
   pointer-events: none;
 }
 
@@ -820,13 +821,13 @@ body {
 }
 
 /*///////////////////////////*/
-
+/*
 .lights-container::after,
 .lights-container::before {
   content: "";
   display: inline-block;
   position: absolute;
-  background: hsl(199, 56%, 18%);
+  background: hsla(42, 57%, 18%, 0.46);
   width: 300px;
   height: 300px;
   border-radius: 50%;
@@ -844,7 +845,9 @@ body {
   left: 0px;
   transform: translateX(-50%);
 }
+  */
 /*With gradient background*/
+/*
 .lights-container {
   background: radial-gradient(
       circle closest-corner at center 125px,
@@ -853,3 +856,4 @@ body {
     )
     no-repeat;
 }
+    */
