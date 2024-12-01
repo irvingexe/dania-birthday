@@ -235,11 +235,6 @@ export default function Cake() {
     }
   }, [start])
 
-  useEffect(() => {
-    pop.current.volume = 0;
-    cepillin.current.volume = 0;
-  }, [])
-
   return (
     <div className="w-full h-full overflow-hidden">
       <div className="lights-container" />
@@ -290,7 +285,13 @@ export default function Cake() {
         <span>
           Para comenzar, asegurate de subir el volumen y aceptar el uso del microfono
         </span>
-        <button onClick={() => { pop.current.play(); cepillin.current.play(); enableMic() }}>
+        <button onClick={() => {
+          pop.current.volume = 0;
+          cepillin.current.volume = 0;
+          pop.current.play();
+          cepillin.current.play();
+          enableMic();
+        }}>
           Continuar
         </button>
       </div>
