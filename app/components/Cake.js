@@ -7,7 +7,7 @@ import Image from "next/image.js";
 import mazapan from "@/assets/turin.webp";
 import mazapan1 from "@/assets/mazapan1.webp";
 import mazapan2 from "@/assets/mazapan2.webp";
-import dania from "@/assets/capybara.webp";
+import dania from "@/assets/capybara1.webp";
 import bg from "@/assets/bg.webp";
 import balloons from "@/assets/morebaloons.webp";
 import Vara from "vara";
