@@ -199,7 +199,7 @@ export default function Cake() {
   }, [])
 
   useEffect(() => {
-    const text = "Sopla las velas :)";
+    const text = "Sopla las velas";
 
     blowText.current.innerHTML = text
       .split("")
@@ -230,6 +230,23 @@ export default function Cake() {
       });
     }
   }, [start])
+
+  useEffect(() => {
+    if (outAnimation) {
+      setTimeout(() => {
+        new Vara(".final-text", "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json", [{
+          text: "Que sua vida seja sempre iluminada por momentos especiais",
+          duration: 2500,
+          y: 3,
+        }], {
+          fontSize: 20,
+          strokeWidth: 2,
+          color: "#fff",
+          textAlign: "center"
+        });
+      }, 3000);
+    }
+  }, [outAnimation])
 
   return (
     <div className="w-full h-full overflow-hidden">
@@ -273,7 +290,8 @@ export default function Cake() {
       </div>
       <div className={`birthday-text absolute left-1/2 top-[15%] -translate-x-1/2 ${!candleCount.current ? 'opacity-0' : ''}`}>
       </div>
-      <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 opacity-0 ${start ? 'visible opacity-100' : ''} ${!candleCount.current ? '!opacity-0' : ''}`} ref={blowText}>{'Sopla las velas :)'}</p>
+      <p className={`blow-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 opacity-0 ${start ? 'visible opacity-100' : ''} ${!candleCount.current ? '!opacity-0' : ''}`} ref={blowText}></p>
+      <p className={`final-text absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-56 opacity-0 ${start ? 'visible opacity-100' : ''}`}></p>
       <div className={`hello ${start ? 'hidden' : ''}`}>
         <span>
           Para comenzar, asegurate de subir el volumen y aceptar el uso del microfono

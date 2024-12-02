@@ -493,6 +493,10 @@ body {
 }
 */
 
+.final-text svg {
+  filter: drop-shadow( 0px 0px 2px #945313);
+}
+
 .birthday-text, .blow-text {
   line-height: 1;
   width: 100%;
